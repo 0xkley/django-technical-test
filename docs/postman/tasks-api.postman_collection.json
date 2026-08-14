@@ -504,7 +504,7 @@
   "variable": [
     {
       "key": "host",
-      "value": ""
+      "value": "http://localhost:8000"
     }
   ]
 }
