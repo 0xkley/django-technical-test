@@ -38,9 +38,9 @@ Las características principales son:
   
   - localhost:8000/api/ (puerto por defecto de Django) 
 
-### Documentación
+### Documentación Swagger / OpenAPI
 
-  - localhost:8000/api/docs
+  - localhost:8000/api/docs/
 
 ### Tasks (tareas)
 
@@ -49,10 +49,11 @@ Las características principales son:
   - `GET /api/tasks/{id}/` - Buscar tarea por ID
   - `GET /api/tasks/?status={status}&search={texto}` - Filtrar por texto y estado
   - `GET /api/tasks/?due_date_from=2026-08-13T00:00:00Z&due_date_to=2026-08-19T00:00:00Z` - Filtrar por rango de fecha
+  - `GET /api/tasks/?search=django&status=pending&due_date_from=2026-08-13T00:00:00Z&due_date_to=2026-08-19T23:59:59Z` - Filtros combinados
   - `GET /api/tasks/upcoming/` - Listar tareas próximas a vencer dentro del criterio definido
   - `PATCH /api/tasks/{id}/` - Editar tarea (solo se envía el parametro a editar)
   - `PUT /api/tasks/{id}/` - Editar tarea (se envía tanto el campo a actualizar con la información nueva, como los demás con sus datos correspondientes)
-  - `PATCH /api/tasks/{id}/status/` - Actualizar estado
+  - `PATCH /api/tasks/{id}/status/` - Actualizar estado (estados: `pending`, `completed`, `postponed`)
   - `DELETE /api/tasks/{id}/` - Eliminación lógica de tarea
 
 ## Ejemplos de request/response
@@ -158,4 +159,4 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-**Nota:** todas las rutas que incluyen `id` tienen que finalizar con `/` (ejemplo `/api/tasks/{id}/`), sino se genera un error debido a configuraciones del framework.
+**Nota**: La API utiliza trailing slash en sus endpoints. Por ejemplo, debe utilizarse `/api/tasks/1/` en lugar de `/api/tasks/1`.
