@@ -55,21 +55,15 @@ Las características principales son:
   - `PATCH /api/tasks/{id}/status/` - Actualizar estado
   - `DELETE /api/tasks/{id}/` - Eliminación lógica de tarea
 
-----
-
 ## Ejemplos de request/response
 
 Archivo de ejemplos de request/response: [archivo](./docs/request_response_examples.md).
-
-----
 
 ## Colección Postman
 
 La colección está dentro de `/docs/postman/`, ya incluye la variable de entorno `host` que hace referencia a `http://localhost:8000` por defecto.
 
 Importar el archivo en Postman y ejecutar primero la carpeta "Datos de prueba" para poder verificar los endpoints de filtros y upcoming con datos reales predefinidos.
-
-----
 
 ## Variables de entorno
 
