@@ -153,10 +153,12 @@ docker ps
 python manage.py migrate
 ```
 
+**Nota**: la primera vez que Postgres se ejecuta (cuando se ejecuta el paso 5), el contenedor puede tardar unos segundos en quedar listo para aceptar conexiones. Si al ejecutar `migrate` responde con un error de conexión la primera vez, se deben esperar unos segundos y volver a ejecutar
+
 ### 7. Levantar el servidor
 
 ```bash
 python manage.py runserver
 ```
 
-**Nota**: La API utiliza trailing slash en sus endpoints. Por ejemplo, debe utilizarse `/api/tasks/1/` en lugar de `/api/tasks/1`.
+**Nota**: La API utiliza trailing slash en sus endpoints. Por ejemplo, debe utilizarse `/api/tasks/1/` en vez de `/api/tasks/1`.
