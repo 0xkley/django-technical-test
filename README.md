@@ -115,7 +115,7 @@ Si la fecha de vencimiento para la tarea fuera, por ejemplo, el 20 de agosto, no
 ### 1. Clonar el repositorio
 
 ```bash
-git clone 
+git clone https://github.com/0xkley/django-technical-test
 cd django-technical-test
 ```
 
