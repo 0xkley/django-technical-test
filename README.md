@@ -1,8 +1,6 @@
-# PRUEBA TÉCNICA WEARE DEV - TASKS CRUD SYSTEM (PYTHON/DJANGO & POSTGRESQL)
+# PRUEBA TÉCNICA WEARE DEV - TASKS CRUD (PYTHON/DJANGO & POSTGRESQL)
 
-## Descripción
-
-**Tasks CRUD System** es un API REST que permite administrar la información de tareas.
+**Tasks CRUD** es un API REST que permite administrar la información de tareas.
 
 Las características principales son:
 
@@ -16,8 +14,6 @@ Las características principales son:
     - Búsqueda por texto (busca dentro de título y descripción)
     - Búsqueda por rango de fechas (desde - hasta)
     - Búsqueda con filtros combinados (por texto y rango de fechas)
-
-----
 
 ## Tecnologías
 
@@ -36,13 +32,13 @@ Las características principales son:
 
   - Se actualizó el campo "LANGUAGE_CODE" para que los mensajes de error predeterminados sean en español.
 
-----
-
 ## Endpoints
 
-Listado de endpoints:
+### API
+  
+  - localhost:8000/api/ (puerto por defecto de Django) 
 
-### Documentación:
+### Documentación
 
   - localhost:8000/api/docs
 
@@ -61,10 +57,9 @@ Listado de endpoints:
 
 ----
 
-## Ejemplos de uso
+## Ejemplos de request/response
 
-Ver ejemplos completos de request/response por endpoint en
-[`/docs/request_response_examples.md`](./docs/request_response_examples.md).
+Archivo de ejemplos de request/response: [archivo](./docs/request_response_examples.md).
 
 ----
 
@@ -89,20 +84,14 @@ Los valores por defecto de estas variables están en el archivo .env.template
 - DB_PORT: puerto de Postgres
 - UPCOMING_HOURS_LIMIT: criterio de horas para el endpoint de tareas próximas a vencer (por defecto 48 horas).
 
-
-----
-
 ## Criterio próximas a vencer
 
-El criterio es un valor numérico que representa las horas en las que una tarea estaría próxima a vencer.
+El campo `UPCOMING_HOURS_LIMIT` en el archivo `.env` representa las horas en las que una tarea estaría próxima a vencer. Este campo tiene un valor predeterminado de `48 horas`.
 
-Tiene un valor definido de 48 horas dentro del archivo `.env`.
+Suponiendo que una tarea fue creada el día de hoy 13 de agosto, y se le dio un due_date (fecha de vencimiento) para el 14 o 15 de agosto, la tarea se encuentra próxima a vencer dentro del rango de las 48 horas y se listará en el endpoint `/api/tasks/upcoming/`.
 
-Suponiendo que una tarea fue creada el día de hoy 13 de agosto, y se le dio un due_date (fecha de vencimiento) para el 14 o 15 de agosto, la tarea se encuentra dentro del rango de las 48 horas y se mostrará como próxima a vencer.
-
-Si la fecha de vencimiento para la tarea fuera, por ejemplo, el 20 de agosto, no se listaría dentro de las tareas próximas a vencer porque no está dentro del rango de las 48 horas.
-
-----
+Si la fecha de vencimiento para la tarea fuera, por ejemplo, el 20 de agosto, no se listaría dentro de las tareas próximas a vencer porque no está dentro del rango de las 48 horas, aún queda tiempo para esto.
+Si se hiciera la petición al endpoint el día 18, ahora sí estaría dentro del rango de las 48 horas y se mostraría.
 
 ## Iniciar proyecto
 
@@ -174,8 +163,5 @@ python manage.py migrate
 ```bash
 python manage.py runserver
 ```
-
-Api: `http://localhost:8000/api/`
-Documentación: `http://localhost:8000/api/docs/`
 
 **Nota:** todas las rutas que incluyen `id` tienen que finalizar con `/` (ejemplo `/api/tasks/{id}/`), sino se genera un error debido a configuraciones del framework.
