@@ -178,4 +178,4 @@ python manage.py runserver
 Api: `http://localhost:8000/api/`
 Documentación: `http://localhost:8000/api/docs/`
 
-**Nota:** todas las rutas que incluyen `{id}` tienen que finalizar con `/` (ej. `/api/tasks/{id}/`), sino se genera un error en las peticiones con los métodos PUT/PATCH/DELETE.
+**Nota:** todas las rutas que incluyen `id` tienen que finalizar con `/` (ejemplo `/api/tasks/{id}/`), sino se genera un error debido a configuraciones del framework.
