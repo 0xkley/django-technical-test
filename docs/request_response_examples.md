@@ -3,7 +3,7 @@
 Ejemplos de Requests y Responses del API.
 Las fechas están en formato ISO.
 
-Todos los endpoints que tienen `id` en la URL necesita la barra al final o provoca un error por configuraciones del framework.
+**Nota**: La API utiliza trailing slash en sus endpoints. Por ejemplo, debe utilizarse `/api/tasks/1/` en vez de `/api/tasks/1`.
 
 ## Crear una tarea
 
